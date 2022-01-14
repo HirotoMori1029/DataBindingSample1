@@ -10,8 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.setOnClick {
-            binding.text = "Click"
-        }
+        binding.a = true
+        binding.b = true
     }
 }

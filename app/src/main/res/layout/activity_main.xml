@@ -4,12 +4,12 @@
 
     <data>
         <variable
-            name="text"
-            type="String" />
+            name="a"
+            type="boolean" />
 
         <variable
-            name="onClick"
-            type="android.view.View.OnClickListener" />
+            name="b"
+            type="boolean" />
 
     </data>
 
@@ -22,13 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{text}" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{onClick}"
-            android:text="PUSH" />
+            android:text="@{a &amp;&amp; b ? `true` : `false`}" />
 
     </LinearLayout>
 </layout>
