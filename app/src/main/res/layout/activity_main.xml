@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View" />
+        <import type="com.hirogram.databindingsample1.Converter" />
 
         <variable
             name="enableAlarm"
@@ -16,18 +16,10 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/sample_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="@={enableAlarm}"
-            android:padding="16dp"
-            android:text="アラーム"/>
-
-        <TimePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="@{enableAlarm ? View.VISIBLE: View.GONE}" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@{Converter.INSTANCE.echo(`Hello`)}"/>
 
     </LinearLayout>
 </layout>

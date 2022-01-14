@@ -12,3 +12,9 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 }
+
+object Converter {
+    fun echo(value: String): String {
+        return "$value $value"
+    }
+}
