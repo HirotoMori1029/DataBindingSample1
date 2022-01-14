@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.hirogram.databindingsample1.Converter" />
+        <variable
+            name="text"
+            type="String" />
 
         <variable
-            name="enableAlarm"
-            type="boolean" />
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+
     </data>
 
     <LinearLayout
@@ -17,9 +20,15 @@
         tools:context=".MainActivity">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{text}" />
+
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{Converter.INSTANCE.echo(`Hello`)}"/>
+            android:layout_height="wrap_content"
+            android:onClick="@{onClick}"
+            android:text="PUSH" />
 
     </LinearLayout>
 </layout>

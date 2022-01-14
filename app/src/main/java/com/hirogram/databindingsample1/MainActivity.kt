@@ -10,11 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-    }
-}
-
-object Converter {
-    fun echo(value: String): String {
-        return "$value $value"
+        binding.setOnClick {
+            binding.text = "Click"
+        }
     }
 }
