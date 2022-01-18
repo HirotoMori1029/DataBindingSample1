@@ -1,15 +1,15 @@
 package com.hirogram.databindingsample1
 
-import android.app.LauncherActivity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.ViewParent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hirogram.databindingsample1.databinding.ActivityMainBinding
+import com.hirogram.databindingsample1.databinding.ListExampleBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,18 +19,20 @@ class MainActivity : AppCompatActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val adapter = ExampleAdapter(this)
-        adapter.items = ListOf(
-
+        adapter.items = listOf(
+            ListItem("aaa", Date()),
+            ListItem("bbb", Date()),
+            ListItem("ccc", Date())
         )
     }
 
     class ExampleAdapter(context: Context) : RecyclerView.Adapter<Holder>() {
-        var items: List<LauncherActivity.ListItem> = emptyList()
+        var items: List<ListItem> = emptyList()
         private val inflater = LayoutInflater.from(context)
 
-        override fun getItemConunt(): Int = items.size
+        override fun getItemCount(): Int = items.size
 
-        override fun onCreatViewHolder(parent: ViewGroup, viewType: Int): Holder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
             val binding: ListExampleBinding =
                 DataBindingUtil.inflate(inflater, R.layout.list_example, parent, false)
             return Holder(binding)
@@ -42,6 +44,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    class Holder(val binding: ListExampleBinding) : RecyclerView.ViewHolder(binding.root)
-
+    class Holder(val binding: ListExampleBinding) :RecyclerView.ViewHolder(binding.root)
 }
