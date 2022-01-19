@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hirogram.databindingsample1.databinding.ActivityMainBinding
 import com.hirogram.databindingsample1.databinding.ListExampleBinding
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
             ListItem("bbb", Date()),
             ListItem("ccc", Date())
         )
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
     }
 
     class ExampleAdapter(context: Context) : RecyclerView.Adapter<Holder>() {
